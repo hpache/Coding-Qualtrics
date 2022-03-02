@@ -13,6 +13,8 @@ The purpose of this experiment is to be able to ask questions on a potentially g
 
 ## Installation
 
+### Non-M1 Macs
+
 To access this code on your local machine, follow these steps:
 
 1. Clone the repository onto your local machine using terminal:
@@ -28,6 +30,42 @@ npm install
 <br>
 
 3. Enjoy our content!!
+
+### M1 Macs
+
+Node doesn't like M1 macs since they're on the Arm64 architecture so we need a huge workaround for that.
+
+First, install nvm on your computer
+[nvm install](https://tecadmin.net/install-nvm-macos-with-homebrew/)
+
+Follow all the instructions for the method you use to install nvm. If you don't upgrade the path variables, it will never work and you will be angry!
+
+1. Get into zsh with the command:
+
+```
+arch -x86_64 zsh
+```
+
+2. Then install node using nvm
+
+```
+nvm install 17
+```
+
+3. Set the install as the default node version
+
+```
+nvm alias default 17 ````
+```
+
+4. Install the npm dependencies, you can also use yarn if you're into that...
+
+```
+npm install
+```
+
+5. Enjoy our work!
+
 
 ## Built with
 
