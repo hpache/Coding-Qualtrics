@@ -16,7 +16,6 @@ window.addEventListener('load', function () {
     button.setAttribute("class", "run-button");
     button.setAttribute("type","submit")
     button.setAttribute("value", "Run");
-    errors.innerText = "Error Messages";
     form.appendChild(errors);
     form.appendChild(button);
     container.appendChild(form);
