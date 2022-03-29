@@ -11,12 +11,10 @@ COPY /Codetrics/package*.json ./
 RUN npm install
 
 # Bundle app source code
-COPY . .
+COPY Codetrics/ ./Codetrics
 # Expose port 3000
 EXPOSE 3000
 
-
-# Change to Codetrics directory
 WORKDIR /usr/src/app/Codetrics
 
 CMD ["node", "server.js"]
