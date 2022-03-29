@@ -1,20 +1,10 @@
-FROM node:17
+# Building from nginx image
+FROM nginx
 
-# Create app directory
-WORKDIR /usr/src/app
+# Copy custom configure file to the default.conf file 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy source code to appropriate location
+COPY src /usr/share/nginx/src
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json and package-lock.json are copied
-# where available
-COPY /Codetrics/package*.json ./
-
-RUN npm install
-
-# Bundle app source code
-COPY Codetrics/ ./Codetrics
-# Expose port 3000
-EXPOSE 3000
-
-WORKDIR /usr/src/app/Codetrics
-
-CMD ["node", "server.js"]
+# Replace any $PORT variable with the assigned port value given by heroku
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
