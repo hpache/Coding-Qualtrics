@@ -2,21 +2,22 @@
 window.addEventListener('load', function () {
     container = document.getElementById("mirror-container");
     var myCodeMirror = CodeMirror(container, {
-        value: "function myScript(){return 100;}\n",
-        mode:  "javascript",
+        value: "print('Hello World!')\n",
+        mode:  "python",
         theme: "oceanic-next",
         lineNumbers: true
     });
-    button = document.createElement("button");
+    button = document.createElement("input");
     errors = document.createElement("p");
-    div = document.createElement("div");
-    div.setAttribute("class", "error-container");
+    form = document.createElement("form");
+    form.setAttribute("class", "error-container");
     errors.setAttribute("class", "errors-display");
     button.setAttribute("class", "run-button");
-    button.innerText = "Run";
+    button.setAttribute("type","submit")
+    button.setAttribute("value", "Run");
     errors.innerText = "Error Messages";
-    div.appendChild(errors);
-    div.appendChild(button);
-    container.appendChild(div);
-    console.log(myCodeMirror);
+    form.appendChild(errors);
+    form.appendChild(button);
+    container.appendChild(form);
+    console.log(myCodeMirror.getValue());
 });
