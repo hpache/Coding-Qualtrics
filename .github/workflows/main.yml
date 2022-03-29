@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - Codetrics/**
 jobs:
   build:
     runs-on: ubuntu-latest
