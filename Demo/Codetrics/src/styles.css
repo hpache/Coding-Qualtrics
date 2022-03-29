@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+#mirror-container {
+    position: relative;
+   display: grid;
+   grid-template-columns: 4fr 1fr;
+   background-color: grey;
+   border: 10px solid grey;
+}
+
+.title {
+    background-color: rgb(102, 142, 187);
+    margin: 0px;
+}
+
+.error-container {
+    background-color: rgb(102, 142, 187);
+    margin-left: 10px;
+}
+
+.run-button {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    width: 200px;
+    margin: 10px;
+    height: 40px;
+}
+
+.errors-display {
+    margin: 10px;
+    color: rgb(207, 100, 100);
+}
