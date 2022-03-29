@@ -11,7 +11,7 @@ COPY /Codetrics/package*.json ./
 RUN npm install
 
 # Bundle app source code
-COPY Codetrics/ .
+COPY . .
 # Expose port 3000
 EXPOSE 3000
 
