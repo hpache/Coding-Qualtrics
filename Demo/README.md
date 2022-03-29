@@ -39,10 +39,7 @@ Once you have all the requirements, running the demo is really straightforward.
 1. Make sure you are in the demo directory.
 2. Open the Docker app leave it running
 3. Open a terminal on your computer and cd to the demo directory
-4. Run the following command
-
-``` docker-compose up ```
-
+4. Run ``` docker-compose up ``` on your terminal
 5. Wait for the docker images to be built and for the containers to run
 6. On your favorite web browser, go to localhost:8000 and enjoy the demo
 7. When you are done, Press ``` ctrl+c``` and then run ``` docker-compose down``` on your terminal.
