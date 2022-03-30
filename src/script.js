@@ -16,9 +16,25 @@ window.addEventListener('load', function () {
     button.setAttribute("class", "run-button");
     button.setAttribute("type","submit")
     button.setAttribute("value", "Run");
-    errors.innerText = "Error Messages";
     form.appendChild(errors);
     form.appendChild(button);
     container.appendChild(form);
-    console.log(myCodeMirror.getValue());
+    console.log("here")
+
+    $("form").submit(function(e){
+        e.preventDefault();
+        var input = myCodeMirror.getValue();
+        
+        $.ajax({
+            url: 'run.php',
+            method: "POST",
+            data: {'input':input},
+            success: function(res){
+                errors.innerText = res;
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }
+        })
+    })
 });
