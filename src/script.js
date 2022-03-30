@@ -2,8 +2,7 @@
 window.addEventListener('load', function () {
     container = document.getElementById("mirror-container");
     var myCodeMirror = CodeMirror(container, {
-        value: "def myScript():\n\treturn 100\n",
-
+        value: "print('Hello World!')\n",
         mode:  "python",
         theme: "oceanic-next",
         lineNumbers: true
@@ -19,7 +18,6 @@ window.addEventListener('load', function () {
     form.appendChild(errors);
     form.appendChild(button);
     container.appendChild(form);
-    console.log("here")
 
     $("form").submit(function(e){
         e.preventDefault();
