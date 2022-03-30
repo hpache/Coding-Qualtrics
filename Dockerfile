@@ -1,20 +1,28 @@
-FROM node:17
+FROM ubuntu
+ENV DEBIAN_FRONTEND = noninteractive
 
-# Create app directory
-WORKDIR /usr/src/app
+# Installing apache2 and php module
+RUN apt-get update
+RUN apt-get install -y apache2
+RUN apt-get install -y apache2-utils
+RUN apt-get install -y php
+RUN apt-get install -y libapache2-mod-php
+RUN apt-get install -y vim
+RUN apt-get install -y python3
+RUN apt-get clean
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json and package-lock.json are copied
-# where available
-COPY /Codetrics/package*.json ./
+COPY run-apache2.sh /usr/local/bin/
 
-RUN npm install
+WORKDIR /usr/local/bin/
 
-# Bundle app source code
-COPY Codetrics/ ./Codetrics
-# Expose port 3000
-EXPOSE 3000
+RUN chmod a+x run-apache2.sh
 
-WORKDIR /usr/src/app/Codetrics
+WORKDIR /var/www/html
 
-CMD ["node", "server.js"]
+COPY src .
+
+RUN rm index.html
+
+RUN chown www-data:www-data /var/www/html
+
+CMD ["run-apache2.sh"]
