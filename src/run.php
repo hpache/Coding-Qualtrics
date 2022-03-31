@@ -7,7 +7,7 @@ fwrite($myfile, $input);
 fclose($myfile);
 
 
-$output = shell_exec('python3 data/input.py');
+$output = shell_exec('python3 data/input.py 2>&1');
 echo $output;
 
 ?>

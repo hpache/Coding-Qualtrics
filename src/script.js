@@ -18,11 +18,9 @@ window.addEventListener('load', function () {
     form.appendChild(errors);
     form.appendChild(button);
     container.appendChild(form);
-
     $("form").submit(function(e){
         e.preventDefault();
         var input = myCodeMirror.getValue();
-        
         $.ajax({
             url: 'run.php',
             method: "POST",

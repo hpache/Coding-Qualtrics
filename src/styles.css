@@ -13,6 +13,16 @@
   font-size: 16px;
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Source+Code+Pro&display=swap');
+
+  p{
+    font-family:'Comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  h1{
+    font-family:'Comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
 .title {
     background-color: rgb(102, 142, 187);
     margin: 0px;
@@ -34,5 +44,6 @@
 
 .errors-display {
     margin: 10px;
-    color: rgb(207, 100, 100);
+    color: rgb(248, 241, 241);
+    font-family: 'Source Code Pro', monospace;
 }

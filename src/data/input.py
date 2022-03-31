@@ -1,4 +1,1 @@
-def myScript():
-	print(4/1)
-  
-myScript()
+print('Hello World!')
