@@ -20,7 +20,7 @@
 <body>
   <app-root>
     <h1>Codetrics Experiment</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sint! Neque, repudiandae distinctio culpa aliquid nemo, sapiente placeat ullam fugiat natus dignissimos cupiditate nostrum veritatis laudantium incidunt sed vel dicta?</p>
+    <p>Here is a reminder of the instructions for the experiment, and the question you will be answering.</p>
     <div id = "mirror-container">
     </div>
   </app-root>
