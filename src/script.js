@@ -4,19 +4,27 @@ window.addEventListener('load', function () {
     var myCodeMirror = CodeMirror(container, {
         value: "print('Hello World!')\n",
         mode:  "python",
-        theme: "oceanic-next",
+        theme: "midnight",
         lineNumbers: true
     });
     button = document.createElement("input");
     errors = document.createElement("p");
     form = document.createElement("form");
+    buttonBar = document.createElement("buttonBar")
+    // runIcon = document.createElement('run-icon');
+
     form.setAttribute("class", "error-container");
+    buttonBar.setAttribute("class", "button-bar")
     errors.setAttribute("class", "errors-display");
     button.setAttribute("class", "run-button");
-    button.setAttribute("type","submit")
-    button.setAttribute("value", "Run");
+    button.setAttribute("type","submit");
+    // runIcon.setAttribute("class", "fa fa-home");
+
+    button.setAttribute("value", "RUN");
+
     form.appendChild(errors);
-    form.appendChild(button);
+    buttonBar.appendChild(button);
+    form.appendChild(buttonBar)
     container.appendChild(form);
 
     $("form").submit(function(e){

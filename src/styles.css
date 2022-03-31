@@ -24,13 +24,39 @@
     width: 100%;
 }
 
-.run-button {
-    position : absolute;
-    bottom : 5px;
-    width: 80px;
-    right:5px
-    /* height: 50px */
+.button-bar{
+    position:absolute;
+    bottom:0px;
+    width:33.33%;
+    height:10%;
+    background-color:rgb(36, 33, 33);
 }
+
+.run-button {
+    position:absolute;
+    bottom:0%;
+    right:0%;
+    width: 120px;
+    font-size:15px;
+    height:100%;
+    background-color:rgb(0, 167, 89);
+    border-color: rgb(3, 128, 69);
+    border-radius: 0.5em;
+    color: white
+}
+
+.run-button:hover{
+    background-color: rgb(13, 129, 13);
+    border-color:rgb(3, 88, 3);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(255,255,255,0.19)
+}
+
+.run-button:active {
+    background-color: rgb(3, 88, 3);
+    border-color: rgb(3, 88, 3);
+    box-shadow: 0 17px 50px 0 rgba(255,255,255,0.05);
+    transform: translateY(2px);
+  }
 
 .errors-display {
     margin: 10px;
