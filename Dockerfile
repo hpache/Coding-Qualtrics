@@ -17,6 +17,8 @@ WORKDIR /usr/local/bin/
 
 RUN chmod a+x run-apache2.sh
 
+COPY apache2.conf /etc/apache2/apache2.conf
+
 WORKDIR /var/www/html
 
 COPY src .
