@@ -1,6 +1,8 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND = noninteractive
 
+RUN mkdir -p /usr/share/man/man1
+
 # Updating apt
 RUN apt-get update
 # Installing apache2
