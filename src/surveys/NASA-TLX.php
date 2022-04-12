@@ -6,7 +6,6 @@
     <title>Codetrics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <script src="../node_modules/angular/angular.js"></script>
     </head>
 
     <form>
