@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         var input = myCodeMirror.getValue();
         $.ajax({
-            url: 'run.php',
+            url: './scripts/php/run.php',
             method: "POST",
             data: {'input':input},
             success: function(res){

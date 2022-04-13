@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="codeMirrorLib/codemirror.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="codeMirrorMode/python.js"></script>
-  <script src = "script.js"></script>
+  <script src = "./scripts/js/script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel = "stylesheet" href = "oceanic-next.css">
-  <link rel = "stylesheet" href = "monokai.css">
-  <link rel = "stylesheet" href = "midnight.css">
-  <link rel = "stylesheet" href = "styles.css">
+  <link rel = "stylesheet" href = "./styles/oceanic-next.css">
+  <link rel = "stylesheet" href = "./styles/monokai.css">
+  <link rel = "stylesheet" href = "./styles/midnight.css">
+  <link rel = "stylesheet" href = "./styles/styles.css">
 </head>
 <body>
   <app-root>
