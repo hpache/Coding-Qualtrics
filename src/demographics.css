@@ -1,0 +1,32 @@
+.range {
+    width:95%;
+    margin: 10px;
+}
+
+.wholeForm {
+    background-color: lightslategray;
+    margin: 20px;
+}
+
+.form-check {
+    margin: 20px;
+}
+
+.label {
+    font-weight: bolder;
+    margin: 10px;
+}
+
+output {
+    margin-left: 47.5%;
+}
+
+#numLabels {
+    margin-left: 10px;
+}
+
+.num {
+    display: inline-block;
+    
+    width: 4.7%;
+}
