@@ -35,9 +35,6 @@ WORKDIR /usr/local/bin/
 # Making the shell script executable
 RUN chmod a+x run-apache2.sh
 
-# Copying the custom apache2 configuration file 
-COPY apache2.conf /etc/apache2/apache2.conf
-
 
 # Copying the custom php.ini configuration file to cli directory
 COPY php.ini /etc/php/7.4/cli/php.ini
@@ -60,8 +57,13 @@ RUN composer require mongodb/mongodb
 # files ONLY IN /var/www/html
 RUN chown www-data:www-data /var/www/html
 
-RUN "run-apache2.sh"
+
+RUN a2enmod headers
+
+# Copying the custom apache2 configuration file 
+COPY apache2.conf /etc/apache2/apache2.conf
+
 
 # Running the run-apache2.sh script to start apache2
 # Correctly (auto-assign open ports without Docker)
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["run-apache2.sh"]
