@@ -23,6 +23,8 @@ RUN apt-get install -y python3
 RUN apt-get install -y default-jdk
 RUN apt-get clean
 
+RUN composer self-update --2
+
 # Installing mongodb extension
 RUN pecl install mongodb
 
