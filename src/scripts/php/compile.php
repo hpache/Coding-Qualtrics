@@ -1,9 +1,5 @@
 <?php
-
-
-require $_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php';
-$client = new MongoDB\Driver\Manager("mongodb://localhost:27017'");
-
+$client = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 $input = $_POST['input'];
 $programmer = "EduardoSosa";
 $bulk = new MongoDB\Driver\BulkWrite;
@@ -13,19 +9,17 @@ $update = ['$push'=> ['codelogs'=>$input]];
 
 $bulk->update($query, $update);  // Update Document     
 
-
 //$client->executeBulkWrite('codetrics.CodeLogs', $bulk);
-
 
 $fp = fopen($_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt", "r");
 $program = fread($fp, filesize($_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt"));
 
-$program_name = explode(".",$program);
+$filepath = $_SERVER["DOCUMENT_ROOT"] . "/data/" . $program;
+$myfile = fopen($filepath, "w");
+fwrite($myfile, $input);
+fclose($myfile);
 
-$runpath = $_SERVER["DOCUMENT_ROOT"] . "/data/";
 
-$output = shell_exec("java -cp " . $runpath . " $program_name[0]" . " 2>&1");
-
-echo $output;
-
+$output = shell_exec("javac " . $filepath . " 2>&1");
+echo $output . "\n";
 ?>

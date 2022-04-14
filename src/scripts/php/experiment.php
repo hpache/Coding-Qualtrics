@@ -5,7 +5,6 @@ $filepath = $_SERVER["DOCUMENT_ROOT"] . "/plans/experimentlayout.csv";
 $csvData = file_get_contents($filepath);
 $lines = explode(PHP_EOL, $csvData);
 $array = array();
-var_dump($lines);
 foreach ($lines as $line) {
     $array[] = str_getcsv($line);
 }
@@ -51,6 +50,13 @@ $porgrampath = $_SERVER["DOCUMENT_ROOT"] . "/experiment/" . $identifier . "/" . 
 
 # read program
 $myfile = fopen($porgrampath, "r") or die("Unable to open file!");
+
+# write current program name
+$currentTxt = $_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt";
+
+$fp = fopen($currentTxt, "w");
+fwrite($fp, $program);
+fclose($fp);
 
 
 echo "$row" . fread($myfile,filesize($porgrampath));
