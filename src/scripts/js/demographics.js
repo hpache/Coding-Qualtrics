@@ -48,7 +48,7 @@ $(document).ready(function(e){
         }
 
         $.ajax({
-            url: '../scripts/php/submit.php',
+            url: '../scripts/php/demographics.php',
             method: "POST",
             data: {"gender": gender,
                    "experience": experience,
@@ -56,7 +56,7 @@ $(document).ready(function(e){
                    "frequency": frequency},
             success: function(res){
                 console.log(res);
-                window.location.href = "/";
+                window.location.href = "/ide/ide.html";
             }
         })
     })

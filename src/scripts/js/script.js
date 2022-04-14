@@ -2,7 +2,7 @@
 window.addEventListener('load', function () {
     container = document.getElementById("mirror-container");
     var myCodeMirror = CodeMirror(container, {
-        value: "print('Hello World!')\n",
+        value: "print('Hello World...')\n",
         mode:  "python",
         theme: "midnight",
         lineNumbers: true

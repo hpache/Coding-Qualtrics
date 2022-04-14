@@ -49,8 +49,6 @@ WORKDIR /var/www/html
 # Copying files in the src directory to /var/www/html
 COPY src .
 
-# Removing default index.html file
-RUN rm index.html
 
 # Spiking mongodb library and extension
 RUN composer require mongodb/mongodb
