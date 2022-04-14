@@ -1,12 +1,12 @@
 <?php
 
-$client = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-
+// $client = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+$client = new MongoDB\Driver\Manager("mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority");
 $input = $_POST['input'];
 $programmer = "EduardoSosa";
 $bulk = new MongoDB\Driver\BulkWrite;
 
-$query = ['programmer' => 'EduardoSosa']; 
+$query = ['name' => 'EduardoSosa']; 
 $update = ['$push'=> ['codelogs'=>$input]];
 
 $bulk->update($query, $update);  // Update Document     

@@ -5,6 +5,7 @@ $filepath = $_SERVER["DOCUMENT_ROOT"] . "/plans/experimentlayout.csv";
 $csvData = file_get_contents($filepath);
 $lines = explode(PHP_EOL, $csvData);
 $array = array();
+var_dump($lines);
 foreach ($lines as $line) {
     $array[] = str_getcsv($line);
 }
