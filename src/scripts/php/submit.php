@@ -29,8 +29,8 @@ $query = ['name' => $name];
 $update = ['$push'=> ['postExperience'=>$doc]];
 $bulk->update($query, $update);
 
-// $client = new MongoDB\Driver\Manager('mongodb://localhost:27017');
-$client = new MongoDB\Driver\Manager("mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority");
+$client = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+// $client = new MongoDB\Driver\Manager("mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority");
 $client->executeBulkWrite('codetrics.CodeLogs', $bulk);
     
 ?>

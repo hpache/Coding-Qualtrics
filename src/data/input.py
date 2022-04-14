@@ -1,4 +1,4 @@
-rray(27) {
+rray(33) {
   [0]=>
   string(43) "Die.java,1,bad_identifiers,good_identifiers"
   [1]=>
@@ -38,20 +38,32 @@ rray(27) {
   [18]=>
   string(2) ",1"
   [19]=>
-  string(0) ""
+  string(2) ",1"
   [20]=>
-  string(0) ""
+  string(2) ",1"
   [21]=>
-  string(0) ""
+  string(2) ",1"
   [22]=>
-  string(0) ""
+  string(2) ",1"
   [23]=>
-  string(0) ""
+  string(2) ",1"
   [24]=>
-  string(0) ""
+  string(2) ",1"
   [25]=>
   string(0) ""
   [26]=>
+  string(0) ""
+  [27]=>
+  string(0) ""
+  [28]=>
+  string(0) ""
+  [29]=>
+  string(0) ""
+  [30]=>
+  string(0) ""
+  [31]=>
+  string(0) ""
+  [32]=>
   string(0) ""
 }
 <br />
@@ -60,4 +72,4 @@ rray(27) {
 <b>Warning</b>:  Undefined array key 2 in <b>/Users/eduardososa/projects/javascript/Coding-Qualtrics/src/scripts/php/experiment.php</b> on line <b>39</b><br />
 <br />
 <b>Notice</b>:  fread(): Read of 8192 bytes failed with errno=21 Is a directory in <b>/Users/eduardososa/projects/javascript/Coding-Qualtrics/src/scripts/php/experiment.php</b> on line <b>56</b><br />
-19
+25
