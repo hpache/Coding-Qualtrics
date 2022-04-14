@@ -10,14 +10,14 @@ $(document).ready(function(){
                 generateIDE(code);
             }
             else{
-                generateIDE(code, "/surveys/NASA-TLX.html")
+                generateIDE(code, "/surveys/NASA-TLX-final.html");
             }
         }
     });
 
 });
 
-function generateIDE(text, actionURL = '../scripts/php/run.php'){
+function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
 
     window.onbeforeunload = function() {
         alert("Dude, are you sure you want to leave? Think of the kittens!");
@@ -31,39 +31,81 @@ function generateIDE(text, actionURL = '../scripts/php/run.php'){
         lineNumbers: true
     });
     button = document.createElement("input");
+    compile = document.createElement("input");
+    run = document.createElement("input");
     errors = document.createElement("p");
     form = document.createElement("form");
     buttonBar = document.createElement("buttonBar")
-    // runIcon = document.createElement('run-icon');
+    
 
     form.setAttribute("class", "error-container");
     buttonBar.setAttribute("class", "button-bar")
     errors.setAttribute("class", "errors-display");
     button.setAttribute("class", "run-button");
     button.setAttribute("type","submit");
-    // runIcon.setAttribute("class", "fa fa-home");
+    compile.setAttribute("class", "compile-button");
+    compile.setAttribute("type", "button");
+    run.setAttribute("class", "compile-button");
+    run.setAttribute("type", "button");
 
-    button.setAttribute("value", "RUN");
+    button.setAttribute("value", "next");
+    run.setAttribute("value", "Run");
+    compile.setAttribute("value", "Compile")
 
     form.appendChild(errors);
     buttonBar.appendChild(button);
+    buttonBar.appendChild(compile);
+    buttonBar.appendChild(run);
     form.appendChild(buttonBar)
     container.appendChild(form);
 
+    var input = myCodeMirror.getValue();
+
+    // When the next button is pressed, send it to nasa-tlx form
     $("form").submit(function(e){
         e.preventDefault();
-        var input = myCodeMirror.getValue();
         $.ajax({
             url: actionURL,
             method: "POST",
             data: {'input':input},
             success: function(res){
-                errors.innerText = res;
-                window.location.href = "/surveys/NASA-TLX.html";
+                window.location.href = actionURL;
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
             }
         })
     })
+
+    // Compile code
+    compile.onclick = function(e){
+        $.ajax({
+            url: "/scripts/php/compile.php",
+            method: "POST",
+            data: {'input':input},
+            success: function(res){
+                errors.innerText = "compile \n" + res;
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }
+        })
+    }
+
+    // Run compiled code
+    run.onclick = function(e){
+        $.ajax({
+            url: "/scripts/php/run.php",
+            method: "POST",
+            data: {'input':input},
+            success: function(res){
+                errors.innerText = "run \n" + res;
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }
+        })
+    }
+
+
 }

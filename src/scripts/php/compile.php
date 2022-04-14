@@ -1,6 +1,4 @@
 <?php
-
-
 $client = new MongoDB\Driver\Manager("mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority");
 $input = $_POST['input'];
 $programmer = "EduardoSosa";
@@ -11,19 +9,17 @@ $update = ['$push'=> ['codelogs'=>$input]];
 
 $bulk->update($query, $update);  // Update Document     
 
-
 $client->executeBulkWrite('codetrics.CodeLogs', $bulk);
-
 
 $fp = fopen($_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt", "r");
 $program = fread($fp, filesize($_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt"));
 
-$program_name = explode(".",$program);
+$filepath = $_SERVER["DOCUMENT_ROOT"] . "/data/" . $program;
+$myfile = fopen($filepath, "w");
+fwrite($myfile, $input);
+fclose($myfile);
 
-$runpath = $_SERVER["DOCUMENT_ROOT"] . "/data/";
 
-$output = shell_exec("java -cp " . $runpath . " $program_name[0]" . " 2>&1");
-
-echo $output;
-
+$output = shell_exec("javac " . $filepath . " 2>&1");
+echo $output . "\n";
 ?>
