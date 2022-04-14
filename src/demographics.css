@@ -30,3 +30,18 @@ output {
     
     width: 4.7%;
 }
+
+.submit {
+    margin:10px;
+}
+
+.title {
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.postTitle {
+    margin: 10px;
+    font-size: 20px;
+}
