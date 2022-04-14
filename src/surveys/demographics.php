@@ -7,11 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../demographics.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 <body>
     <div class = "wholeForm">
+        <p class = "title">Welcome to this Codetrics Experiment!</p>
+        <p class = "postTitle">Please fill out this demographics form before you start the experiment.</p>
+        <hr>
         <div class = "label">What is your gender identity?</div>
         <div class="form-check">
             <input class="form-check-input" name="genderRadio" type="radio" id="male" value="option1" checked>
@@ -75,37 +79,39 @@
 
         <div class = "label">On average how often do you program (within the past year)?</div>
         <div class="form-check">
-            <input class="form-check-input" name="experienceRadio" type="radio" id="oneOrLess" value="option1" checked>
+            <input class="form-check-input" name="frequencyRadio" type="radio" id="oneOrLess" value="option1" checked>
             <label class="form-check-label" for="oneOrLess">
                 1 hour per week or less
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" name="experienceRadio" type="radio" id="oneToFive" value="option2">
+            <input class="form-check-input" name="frequencyRadio" type="radio" id="oneToFive" value="option2">
             <label class="form-check-label" for="oneToFive">
                 between 1 and 5 hours per week
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" name="experienceRadio" type="radio" id="fiveToTen" value="option3">
+            <input class="form-check-input" name="frequencyRadio" type="radio" id="fiveToTen" value="option3">
             <label class="form-check-label" for="fiveToTen">
                 between 5 and 10 hours per week
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" name="experienceRadio" type="radio" id="tenToTwenty" value="option3">
+            <input class="form-check-input" name="frequencyRadio" type="radio" id="tenToTwenty" value="option3">
             <label class="form-check-label" for="tenToTwenty">
                 between 10 and 20 hours per week
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" name="experienceRadio" type="radio" id="moreThanTwenty" value="option3">
+            <input class="form-check-input" name="frequencyRadio" type="radio" id="moreThanTwenty" value="option3">
             <label class="form-check-label" for="moreThanTwenty">
                 more than 20 hours per week
             </label>
         </div>
+        <input class = "btn submit" type = "submit">
     </div>
 </body>
+<script src = "/scripts/js/demographics.js"></script>
 <script>
         container = document.getElementById("numLabels")
         console.log(container)
