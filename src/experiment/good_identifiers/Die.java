@@ -2,7 +2,7 @@
 The following program simulates a die rolling.  
 The program contains a bug, and you are expected to debug this program and fix the bug.  
 
-Here’s a representation of the intended program behavior:
+Heres a representation of the intended program behavior:
 _  _  _
 Every tenth roll:
 [63, 61, 50, 55, 32, 9, 16, 10, 70, 31]

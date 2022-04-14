@@ -1,5 +1,5 @@
 <?php
-
+require $_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php';
 $filepath = $_SERVER["DOCUMENT_ROOT"] . "/plans/experimentlayout.csv";
 $csvData = file_get_contents($filepath);
 $lines = explode(PHP_EOL, $csvData);
@@ -59,7 +59,7 @@ $bulk->update($query, $update);
 
 // $client = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 $client = new MongoDB\Driver\Manager("mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority");
-$client->executeBulkWrite('codetrics.CodeLogs', $bulk);
+//$client->executeBulkWrite('codetrics.CodeLogs', $bulk);
     
 ?>
     

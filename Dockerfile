@@ -53,7 +53,7 @@ RUN composer require mongodb/mongodb
 
 # Allowing php to read,write, and delete
 # files ONLY IN /var/www/html
-RUN chown www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 
 
 RUN a2enmod headers

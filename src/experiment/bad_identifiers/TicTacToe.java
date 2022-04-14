@@ -1,7 +1,7 @@
 /*
 The following program implements a command line version of the game Tic Tac Toe.  
 The program contains a bug, and you are expected to debug this program and fix the bug.  
-Here’s a representation of the intended program behavior:
+Here a representation of the intended program behavior:
 _  _  _
 _  _  _
 _  _  _
