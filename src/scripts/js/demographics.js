@@ -56,7 +56,7 @@ $(document).ready(function(e){
                    "frequency": frequency},
             success: function(res){
                 console.log(res);
-                window.location.href = "/";
+                window.location.href = "/ide/ide.html";
             }
         })
     })

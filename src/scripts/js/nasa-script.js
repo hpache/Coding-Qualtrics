@@ -44,7 +44,7 @@ $(document).ready(function(e){
             // On success log the variables and redirect to coding page
             success: function(res){
                 console.log(res);
-                window.location.href = "/";
+                window.location.href = "/ide/ide.html";
             }
         })
     })
