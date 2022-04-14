@@ -60,6 +60,8 @@ RUN composer require mongodb/mongodb
 # files ONLY IN /var/www/html
 RUN chown www-data:www-data /var/www/html
 
+RUN "run-apache2.sh"
+
 # Running the run-apache2.sh script to start apache2
 # Correctly (auto-assign open ports without Docker)
-CMD ["run-apache2.sh"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
