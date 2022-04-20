@@ -83,3 +83,10 @@
     color: rgb(248, 241, 241);
     font-family: 'Source Code Pro', monospace;
 }
+
+#timerContainer {
+  position: absolute;
+  right: 10px;
+  font-size: 30px;
+  top: 0px;
+}
