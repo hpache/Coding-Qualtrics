@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     $.ajax({
         url:"../scripts/php/experiment.php",
         method:"POST",
@@ -18,12 +17,34 @@ $(document).ready(function(){
 });
 
 function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
+    timerDisplay = document.createElement("p");
+    container = document.getElementById("mirror-container");
+    timerContainer = document.getElementById("timerContainer");
+    timerContainer.appendChild(timerDisplay);
+    function startTimer(duration, display) {
+        var timer = duration, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                window.location.href = "/surveys/NASA-TLX.html";
+            }
+
+        }, 1000);
+    }
+    
+    var fifteenSeconds = 60*15;
+    startTimer(fifteenSeconds, timerDisplay);
 
     window.onbeforeunload = function() {
         alert("Dude, are you sure you want to leave? Think of the kittens!");
     }
-
-    container = document.getElementById("mirror-container");
     var myCodeMirror = CodeMirror(container, {
         value: text,
         mode:  "javascript",
