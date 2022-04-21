@@ -11,20 +11,15 @@ RUN apt-get install -y apache2
 RUN apt-get install -y apache2-utils
 # Installing php
 RUN apt-get install -y php
-# Installing pecl
-RUN apt-get install -y php-pear php-dev
-# Installing composer 
-RUN apt-get install -y composer
+
 # Installing php module for apache2
 RUN apt-get install -y libapache2-mod-php
 # Installing python3
-RUN apt-get install -y python3
+RUN apt-get install -y python3 curl
 # Installing latest java build
 RUN apt-get install -y default-jdk
 RUN apt-get clean
-
-# Installing mongodb extension
-RUN pecl install mongodb
+RUN apt-get update
 
 # Copying script to user/local/bin directory
 COPY run-apache2.sh /usr/local/bin/
@@ -36,20 +31,23 @@ WORKDIR /usr/local/bin/
 RUN chmod a+x run-apache2.sh
 
 
-# Copying the custom php.ini configuration file to cli directory
-COPY php.ini /etc/php/7.4/cli/php.ini
-# Copying the custom php.ini configuration file to apache2 directory
-COPY php.ini /etc/php/7.4/apache2/php.ini
-
 # changing working directory to /var/www/html
 WORKDIR /var/www/html
 
 # Copying files in the src directory to /var/www/html
 COPY src .
 
+# Go to js scripts directory
+WORKDIR /var/www/html/scripts/js
 
-# Spiking mongodb library and extension
-RUN composer require mongodb/mongodb
+# Install node and npm
+RUN apt-get install -y nodejs npm
+# Update node
+RUN npm install -g n
+RUN n stable
+# Install node mongodb driver
+RUN npm install mongodb
+
 
 # Allowing php to read,write, and delete
 # files ONLY IN /var/www/html
