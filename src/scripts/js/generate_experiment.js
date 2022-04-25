@@ -1,22 +1,33 @@
 $(document).ready(function(){
+
     $.ajax({
         url:"../scripts/php/experiment.php",
         method:"POST",
         success: function(result){
-            count = parseInt(result.slice(0,1));
-            code = result.slice(1);
-            if (count != 2){
-                generateIDE(code);
+            
+            if (result === "done"){
+                window.location.href = "/";
             }
             else{
-                generateIDE(code, "/surveys/NASA-TLX-final.html");
+                generateIDE(result);
             }
+            
         }
+    });
+
+    // Preventing refresh
+    window.addEventListener('beforeunload', function (e) {
+        // Cancel the event
+        e.preventDefault();
+        // Chrome requires returnValue to be set
+        e.returnValue = '';
     });
 
 });
 
+
 function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
+
     timerDisplay = document.createElement("p");
     container = document.getElementById("mirror-container");
     timerContainer = document.getElementById("timerContainer");
@@ -42,9 +53,6 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
     var fifteenSeconds = 60*15;
     startTimer(fifteenSeconds, timerDisplay);
 
-    window.onbeforeunload = function() {
-        alert("Dude, are you sure you want to leave? Think of the kittens!");
-    }
     var myCodeMirror = CodeMirror(container, {
         value: text,
         mode:  "javascript",
