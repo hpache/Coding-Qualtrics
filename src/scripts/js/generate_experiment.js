@@ -5,7 +5,8 @@ $(document).ready(function(){
         method:"POST",
         success: function(result){
             if (result === "done"){
-                window.location.href = "/";
+                console.log(result);
+                window.location.href = "/surveys/demographics.html";
             }
             else{
                 generateIDE(result);
