@@ -38,7 +38,7 @@ else{
     // run npm script
     $runpath = $_SERVER["DOCUMENT_ROOT"] . "/scripts/js/update.js";
     $output = shell_exec("node " . $runpath);
-    
+    echo "done";
 }
 
 
