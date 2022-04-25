@@ -47,6 +47,8 @@ RUN npm install -g n
 RUN n stable
 # Install node mongodb driver
 RUN npm install mongodb
+# Install node fs driver
+RUN npm install fs
 
 
 # Allowing php to read,write, and delete

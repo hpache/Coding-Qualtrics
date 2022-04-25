@@ -1,23 +1,35 @@
 $(document).ready(function(){
+
     $.ajax({
         url:"../scripts/php/experiment.php",
         method:"POST",
         success: function(result){
-            count = parseInt(result.slice(0,1));
-            code = result.slice(1);
-            if (count != 2){
-                generateIDE(code);
+            
+            if (result === "done"){
+                window.location.href = "/";
             }
             else{
-                generateIDE(code, "/surveys/NASA-TLX-final.html");
+                generateIDE(result);
             }
+            
         }
+    });
+
+    // Preventing refresh
+    window.addEventListener('beforeunload', function (e) {
+        // Cancel the event
+        e.preventDefault();
+        // Chrome requires returnValue to be set
+        e.returnValue = '';
     });
 
 });
 
+
 function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
+
     timerDisplay = document.createElement("p");
+    timerDisplay.setAttribute("id", "timer");
     container = document.getElementById("mirror-container");
     timerContainer = document.getElementById("timerContainer");
     timerContainer.appendChild(timerDisplay);
@@ -42,9 +54,6 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
     var fifteenSeconds = 60*15;
     startTimer(fifteenSeconds, timerDisplay);
 
-    window.onbeforeunload = function() {
-        alert("Dude, are you sure you want to leave? Think of the kittens!");
-    }
     var myCodeMirror = CodeMirror(container, {
         value: text,
         mode:  "javascript",
@@ -80,15 +89,13 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
     form.appendChild(buttonBar)
     container.appendChild(form);
 
-    var input = myCodeMirror.getValue();
-
     // When the next button is pressed, send it to nasa-tlx form
     $("form").submit(function(e){
         e.preventDefault();
         $.ajax({
             url: actionURL,
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue()},
             success: function(res){
                 window.location.href = actionURL;
             },
@@ -103,7 +110,8 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
         $.ajax({
             url: "/scripts/php/compile.php",
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue(), 
+            'time': $("#timer")[0].innerText},
             success: function(res){
                 errors.innerText = "compile \n" + res;
             },
@@ -118,7 +126,8 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
         $.ajax({
             url: "/scripts/php/run.php",
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue(), 
+            'time': $("#timer")[0].innerText},
             success: function(res){
                 errors.innerText = "run \n" + res;
             },

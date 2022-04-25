@@ -62,6 +62,11 @@ public class TicTacToe{
 		}
 	}
 
+	public void setGrid(String[][] newGrid){
+		this.myGrid = newGrid;
+	}
+
+	
 	// function to play the game until tie or winner is found
 	public void play(){
 
@@ -197,7 +202,51 @@ public class TicTacToe{
 		
 		// create game and start it
 		TicTacToe myGame = new TicTacToe();
-		myGame.play();
+		
+		// Grid 1
+		String[][] grid1 = {{"O","O","X"},{"X","X","O"},{"O","X","O"}};
+
+		myGame.setGrid(grid1);
+		myGame.print_grid();
+
+		// Should be true
+		System.out.println("tie: " + myGame.check_tie());
+		// Should return false
+		System.out.println("winner: " + myGame.check_winner());
+		
+
+		// Grid 2
+		String[][] grid2 = {{"X","X",""},{"X","O",""},{"","","O"}};
+
+		myGame.setGrid(grid2);
+		myGame.print_grid();
+
+		// Should return False
+		System.out.println("tie: " + myGame.check_tie());
+		// Should return none
+		System.out.println("winner: " + myGame.check_winner());
+
+		// Grid 3
+		String[][] grid3 = {{"","X","O"},{"X","O",""},{"O","",""}};
+
+		myGame.setGrid(grid3);
+		myGame.print_grid();
+
+		// Should return false
+		System.out.println("tie: " + myGame.check_tie());
+		// Should return O
+		System.out.println("winner: " + myGame.check_winner());
+
+		// Grid 4
+		String[][] grid4 = {{"O","X","X"},{"","X","O"},{"O","X",""}};
+
+		myGame.setGrid(grid4);
+		myGame.print_grid();
+
+		// Should return false
+		System.out.println("tie: " + myGame.check_tie());
+		// Should return 1
+		System.out.println("winner: " + myGame.check_winner());
 	}
 
 }

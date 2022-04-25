@@ -1,66 +1,45 @@
 <?php
+session_start();
+
+// If the codes array is not empty do the following:
+if (!empty($_SESSION["codes"])){
 
 
-$filepath = $_SERVER["DOCUMENT_ROOT"] . "/plans/experimentlayout.csv";
-$csvData = file_get_contents($filepath);
-$lines = explode(PHP_EOL, $csvData);
-$array = array();
-foreach ($lines as $line) {
-    $array[] = str_getcsv($line);
-}
+    $_SESSION["program"] = array_pop($_SESSION["codes"]);
 
-$row = 0;
-$currentProgram = "";
-# Iterate over each array
-foreach ($array as $element){
-
-    $program = $element[0];
-    $picked = $element[1];
-
-    # Find first with second element with 0
-    if ($picked == 0){
-
-        # Switch value to 1 then break loop
-        $array[$row][1] = "1";
-        # Assign to current program
-        $currentProgram = $program;
-        break;
+    // Picking the identifier
+    if ($_SESSION["identifier"] == 0){
+        $identifier = "good_identifiers";
+        $_SESSION["identifier_type"] = $identifier;
+    }
+    else{
+        $identifier = "bad_identifiers";
+        $_SESSION["identifier_type"] = $identifier;
     }
 
-    # Add one to count
-    $row++;
+    // Reset identifier
+    $_SESSION["identifier"] = random_int(0,1);
 
+    # Create program path
+    $porgrampath = $_SERVER["DOCUMENT_ROOT"] . "/experiment/" . $identifier . "/" . $_SESSION["program"];
+
+    # read program
+    $myfile = fopen($porgrampath, "r") or die("Unable to open file!");
+
+
+
+    echo fread($myfile,filesize($porgrampath));
 }
 
-# Pick random integer
-$rand_int = rand(2, 3);
-# Get corresponding identifier
-$identifier = $array[$row][$rand_int];
-
-// Open a file in write mode ('w')
-$fp = fopen($filepath, 'w');
-
-// Loop through file pointer and a line
-foreach ($array as $fields) {
-    fputcsv($fp, $fields);
+else{
+    // Destroy session
+    session_destroy();
+    // run npm script
+    $runpath = $_SERVER["DOCUMENT_ROOT"] . "/scripts/js/update.js";
+    $output = shell_exec("node " . $runpath);
+    
+    echo "done";
 }
-
-# Create program path
-$porgrampath = $_SERVER["DOCUMENT_ROOT"] . "/experiment/" . $identifier . "/" . $program;
-
-# read program
-$myfile = fopen($porgrampath, "r") or die("Unable to open file!");
-
-# write current program name
-$currentTxt = $_SERVER["DOCUMENT_ROOT"] . "/plans/current.txt";
-
-$fp = fopen($currentTxt, "w");
-fwrite($fp, $program);
-fclose($fp);
-
-
-echo "$row" . fread($myfile,filesize($porgrampath));
-
 
 
 ?>
