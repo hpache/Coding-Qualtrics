@@ -29,6 +29,7 @@ $(document).ready(function(){
 function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
 
     timerDisplay = document.createElement("p");
+    timerDisplay.setAttribute("id", "timer");
     container = document.getElementById("mirror-container");
     timerContainer = document.getElementById("timerContainer");
     timerContainer.appendChild(timerDisplay);
@@ -88,15 +89,13 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
     form.appendChild(buttonBar)
     container.appendChild(form);
 
-    var input = myCodeMirror.getValue();
-
     // When the next button is pressed, send it to nasa-tlx form
     $("form").submit(function(e){
         e.preventDefault();
         $.ajax({
             url: actionURL,
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue()},
             success: function(res){
                 window.location.href = actionURL;
             },
@@ -111,7 +110,8 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
         $.ajax({
             url: "/scripts/php/compile.php",
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue(), 
+            'time': $("#timer")[0].innerText},
             success: function(res){
                 errors.innerText = "compile \n" + res;
             },
@@ -126,7 +126,8 @@ function generateIDE(text, actionURL = "/surveys/NASA-TLX.html"){
         $.ajax({
             url: "/scripts/php/run.php",
             method: "POST",
-            data: {'input':input},
+            data: {'input':myCodeMirror.getValue(), 
+            'time': $("#timer")[0].innerText},
             success: function(res){
                 errors.innerText = "run \n" + res;
             },

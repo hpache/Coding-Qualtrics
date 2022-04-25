@@ -15,6 +15,10 @@ if (!isset($_SESSION["codes"]) || !isset($_SESSION["identifier"]) || !isset($_SE
     $_SESSION["identifier"] = random_int(0,1);
     // Adding nasa-tlx array
     $_SESSION["data"] = array();
+    // Adding compile array
+    $_SESSION["compile"] = array();
+    // Adding run array;
+    $_SESSION["run"] = array();
 }
 
 // Gather input from user
@@ -30,7 +34,9 @@ $json_array = Array(
     "experience" => $exp,
     "years" => $years,
     "frequency" => $freq,
-    "nasa-tlx" => array()
+    "nasa-tlx" => array(),
+    "compile" => array(),
+    "run" => array()
 );
 
 $_SESSION["data"] = $json_array;
