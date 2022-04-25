@@ -58,7 +58,7 @@ $(document).ready(function(e){
         // xhttp.send(sendString);
 
         $.ajax({
-            url: 'http://localhost:3001/demographics',
+            url: '../scripts/php/demographics.php',
             method: "POST",
             data: {"gender": gender,
                    "experience": experience,
@@ -70,10 +70,9 @@ $(document).ready(function(e){
             },
             error: function(res){
                 console.log(res);
-                window.location.href = "/ide/ide.html";
+                //window.location.href = "/ide/ide.html";
             }
             
         })
-        window.location.href = "/ide/ide.html";
     })
 });

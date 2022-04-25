@@ -9,6 +9,7 @@ fs.readFile('../../data/participant_data.json', (err, data) => {
 
     // Replace the uri string with your MongoDB deployment's connection string.
     const uri = process.env.MONGODB_URI;
+    // const uri = "mongodb+srv://codetrics:CodeTrics127@cluster0.caket.mongodb.net/codetrics?retryWrites=true&w=majority";
 
     const client = new MongoClient(uri);
 

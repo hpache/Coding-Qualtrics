@@ -62,6 +62,10 @@ public class TicTacToe{
 		}
 	}
 
+	public void setGrid(String[][] newGrid){
+		this.myGrid = newGrid;
+	}
+
 	// function to play the game until tie or winner is found
 	public void play(){
 

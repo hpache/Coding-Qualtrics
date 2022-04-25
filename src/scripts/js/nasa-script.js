@@ -32,7 +32,7 @@ $(document).ready(function(e){
         
         // Making ajax request
         $.ajax({
-            url: "http://localhost:3001/nasa-script",
+            url: "../php/submit.php",
             method: "POST",
             // Creating POST data variables
             data: {"mental": $("#mental")[0].value,

@@ -4,7 +4,6 @@ $(document).ready(function(){
         url:"../scripts/php/experiment.php",
         method:"POST",
         success: function(result){
-            
             if (result === "done"){
                 window.location.href = "/";
             }
