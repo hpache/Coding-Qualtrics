@@ -46,9 +46,19 @@ $(document).ready(function(e){
         else {
             frequency = "moreThanTwenty"
         }
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.open("POST", "index", true);
+
+        // var data = {"gender": gender,
+        // "experience": experience,
+        // "years": $(".range")[0].value,
+        // "frequency": frequency};
+
+        // var sendString = JSON.stringify(data);
+        // xhttp.send(sendString);
 
         $.ajax({
-            url: '../scripts/php/demographics.php',
+            url: 'http://localhost:3001/demographics',
             method: "POST",
             data: {"gender": gender,
                    "experience": experience,
@@ -57,7 +67,13 @@ $(document).ready(function(e){
             success: function(res){
                 console.log(res);
                 window.location.href = "/ide/ide.html";
+            },
+            error: function(res){
+                console.log(res);
+                window.location.href = "/ide/ide.html";
             }
+            
         })
+        window.location.href = "/ide/ide.html";
     })
 });

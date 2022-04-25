@@ -32,7 +32,7 @@ $(document).ready(function(e){
         
         // Making ajax request
         $.ajax({
-            url: '../scripts/php/submit-final.php',
+            url: "http://localhost:3001/nasa-script",
             method: "POST",
             // Creating POST data variables
             data: {"mental": $("#mental")[0].value,
@@ -47,5 +47,6 @@ $(document).ready(function(e){
                 window.location.href = "/";
             }
         })
+        indow.location.href = "/"
     })
 });
