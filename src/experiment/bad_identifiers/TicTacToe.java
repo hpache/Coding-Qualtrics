@@ -211,7 +211,7 @@ public class TicTacToe{
 
 		// Should be true
 		System.out.println("tie: " + myGame.check_tie());
-		// Should return false
+		// Should return none
 		System.out.println("winner: " + myGame.check_winner());
 		
 
@@ -245,7 +245,7 @@ public class TicTacToe{
 
 		// Should return false
 		System.out.println("tie: " + myGame.check_tie());
-		// Should return 1
+		// Should return X
 		System.out.println("winner: " + myGame.check_winner());
 	}
 

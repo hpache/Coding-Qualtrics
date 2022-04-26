@@ -32,5 +32,7 @@ $path = $_SERVER["DOCUMENT_ROOT"] . "/data/";
 // Writing to json file
 file_put_contents($path . "participant_data.json", $json);
 
+var_dump($_SESSION["data"]);
+
 ?>
     
